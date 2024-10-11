@@ -1,0 +1,29 @@
+module registradorsimples (
+  input EN,
+  input En,
+  input [2:0]Adress,
+  input AdressAnd
+  input [7:0]RegData,
+  input rst,
+  output reg [7:0] DataOut);
+  
+  
+  always *(@) begin
+    
+    if(Adress == 8'hFF) begin
+       AdressAnd= 1;
+       En = EN & AdressAnd;
+ 	 end 
+  
+    always @(posedge En or negedge rst)
+    begin 
+      if(!reset) 
+        DataOut <= 0;
+      
+      end else begin
+        DataOut <= RegData;
+        
+      end
+    end
+	 
+ endmodule 

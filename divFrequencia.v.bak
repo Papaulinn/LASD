@@ -1,0 +1,16 @@
+module divFrequencia(inpuse clk, output reg clk1hz);
+
+reg[25:0] contador;
+	always @(posedge clk50M)
+		begin
+			if(contador==25000000)
+				begin
+				clk1hz=~clk1;
+				contador = 0;
+				end
+			else
+		contador = contador+1;
+		
+	end
+	
+endmodule 

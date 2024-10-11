@@ -1,0 +1,43 @@
+module ControlUnit (
+
+input [6:0] Op,
+input [2:0] Funct3,
+input [6:0] Funct7,
+output reg RegWrite, 
+output reg ULASrc
+output reg [2:0] ULAControl);
+
+always @(*) 
+
+	case(Op) 
+	
+		7'b0110011:
+		
+		begin 
+		
+		RegWrite	=1'b1; 
+		ULASrc= 1'b0;
+			
+			case({Func7, Funct3})
+			10'b0000000_000: ULAControl=3'b000;
+			10'b1000000_000: ULAControl=3'b001;
+			10'b0000000_111: ULAControl=3'b010;
+			10'b0000000_110: ULAControl=3'b011;
+			10'b0000000_010: ULAControl=3'b101;
+			
+			endcase
+		end
+		
+		7'b0010011: 
+		
+		begin 
+		RegWrite	=1'b1; 
+		ULASrc= 1'b1;
+		ULAControl=3'b000;
+		
+		end
+		endcase
+		
+		
+			
+			

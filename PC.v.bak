@@ -1,0 +1,24 @@
+module PC(
+
+input clk, rst,
+input [7:0] PCin,
+output reg [7:0] PC
+);
+
+always @(posedge clk or negedge rst) 
+ 
+ begin
+ 
+	if (!rst) begin
+	
+		PC <= 8'b0;
+		
+		end else begin
+		
+		PC <= PCin;
+		
+		end
+		
+	end 
+	
+endmodule

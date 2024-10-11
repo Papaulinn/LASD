@@ -1,0 +1,14 @@
+module contador_mod_10(input clk, input rst, output[3:0] contador);
+
+	always @(posedge clk, negedge rst)
+		begin 
+			if(rst==0)
+			cont=9;
+			else 
+				begin	if(cont==0)
+				cont =9 ;
+				elsecont = cont -1;
+				end
+			end
+			
+endmodule 

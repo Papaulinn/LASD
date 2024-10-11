@@ -1,0 +1,10 @@
+module adderImm(
+input [7:0] A, B,
+output [7:0] C);
+
+	assign B=A+B;
+	
+
+endmodule
+
+	
